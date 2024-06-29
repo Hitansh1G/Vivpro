@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  hitansh-springboot-container:
+    image: hitansh-spring-boot-docker-compose:1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/hitansh-springboot-container   # corrected volume mapping
+    ports:
+      - "8080:8080"   # corrected port mapping

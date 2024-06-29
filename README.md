@@ -32,15 +32,9 @@ git clone https://github.com/yourusername/song-application.git
 cd song-application
 ```
 
-### using gradle
-1. build the project
-```bash
-./gradlew clean build
-```
-2. Run the application
-```bash
-./gradlew bootRun
-```
+### using docker
+1. Run the docker command 
+
 
 
 Running Tests
