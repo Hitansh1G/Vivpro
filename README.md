@@ -1,123 +1,197 @@
-# Song Application
+[//]: # (# Song Application)
 
-This is a Spring Boot application for managing songs. The application provides RESTful APIs for loading data, retrieving songs, and rating songs.
+[//]: # ()
+[//]: # (This is a Spring Boot application for managing songs. The application provides RESTful APIs for loading data, retrieving songs, and rating songs.)
 
-## Features
+[//]: # ()
+[//]: # (## Features)
 
-- Load data from a file
-- Retrieve all songs with pagination
-- Retrieve a song by its title
-- Rate a song
+[//]: # ()
+[//]: # (- Load data from a file)
 
-## Technologies Used
+[//]: # (- Retrieve all songs with pagination)
 
-- Java 17
-- Spring Boot 3.3.1
-- Spring Data JPA
-- H2 Database (for development)
-- Gradle (for dependency management and build)
+[//]: # (- Retrieve a song by its title)
 
-## Prerequisites
+[//]: # (- Rate a song)
 
-- JDK 17 or higher
-- Gradle
-- Docker (optional, for running the application in a container)
+[//]: # ()
+[//]: # (## Technologies Used)
 
-## Getting Started
+[//]: # ()
+[//]: # (- Java 17)
 
-### Clone the Repository
+[//]: # (- Spring Boot 3.3.1)
 
-```bash
-git clone https://github.com/yourusername/song-application.git
-cd song-application
-```
-## Prerequisites
+[//]: # (- Spring Data JPA)
 
-- [Docker](https://www.docker.com/products/docker-desktop) installed on your machine.
+[//]: # (- H2 Database &#40;for development&#41;)
 
-## Getting Started
+[//]: # (- Gradle &#40;for dependency management and build&#41;)
 
-Follow these steps to run the application using Docker.
+[//]: # ()
+[//]: # (## Prerequisites)
 
-### Step 1: Docker Login (if necessary)
+[//]: # ()
+[//]: # (- JDK 17 or higher)
 
-Log in to Docker Hub using your credentials:
+[//]: # (- Gradle)
 
-```sh
-docker login
-```
-### Step 2: Pull the Docker Image
+[//]: # (- Docker &#40;optional, for running the application in a container&#41;)
 
-Pull the Docker image from Docker Hub:
+[//]: # ()
+[//]: # (## Getting Started)
 
-```sh
-docker pull hitansh1g/song-app:v2
-```
+[//]: # ()
+[//]: # (### Clone the Repository)
 
-### Step 3: Run the Docker Container
-Run the Docker container, mapping port 8080 on your host to port 8080 in the container:
-```sh
-docker run -d -p 8080:8080 hitansh1g/song-app:v2 
-```
+[//]: # ()
+[//]: # (```bash)
 
-### Step 4: Access the Application
-Once the Docker container is running, you can access the application by opening a web browser and navigating to:
+[//]: # (git clone https://github.com/yourusername/song-application.git)
 
-http://localhost:8080/api/songs/load
+[//]: # (cd song-application)
 
+[//]: # (```)
 
-Endpoints
-Here are the available endpoints for the application:
+[//]: # (## Prerequisites)
 
-GET /api/songs/load: Load data from a predefined JSON file.
-GET /api/songs: Retrieve a paginated list of songs.
-GET /api/songs/{title}: Retrieve a song by its title.
-POST /api/songs/{id}/rate: Rate a song by its ID.
+[//]: # ()
+[//]: # (- [Docker]&#40;https://www.docker.com/products/docker-desktop&#41; installed on your machine.)
 
+[//]: # ()
+[//]: # (## Getting Started)
 
-Additional Notes
+[//]: # ()
+[//]: # (Follow these steps to run the application using Docker.)
 
-Ensure that the Docker daemon is running on your machine.
-The application will use an in-memory database (H2) for this demonstration.
+[//]: # ()
+[//]: # (### Step 1: Docker Login &#40;if necessary&#41;)
 
+[//]: # ()
+[//]: # (Log in to Docker Hub using your credentials:)
 
-Troubleshooting
+[//]: # ()
+[//]: # (```sh)
 
-If you encounter any issues, ensure that:
+[//]: # (docker login)
 
-Docker is installed and running.
-The ports are not being used by other applications.
-The Docker image was pulled successfully.
+[//]: # (```)
 
+[//]: # (### Step 2: Pull the Docker Image)
 
+[//]: # ()
+[//]: # (Pull the Docker image from Docker Hub:)
 
+[//]: # ()
+[//]: # (```sh)
 
-Running Tests
-The test execution process will involve running a Docker container and then executing the tests within that container. Here are the steps:
+[//]: # (docker pull hitansh1g/song-app:v2)
 
-Start the Docker Container with a Shell:
+[//]: # (```)
 
-Start a Docker container from the image with an interactive shell:
+[//]: # ()
+[//]: # (### Step 3: Run the Docker Container)
 
-docker run -it --entrypoint /bin/bash hitansh1g/song-app:v2
+[//]: # (Run the Docker container, mapping port 8080 on your host to port 8080 in the container:)
 
+[//]: # (```sh)
 
-This command starts a Docker container and gives you an interactive shell (/bin/bash) within the container.
+[//]: # (docker run -d -p 8080:8080 hitansh1g/song-app:v2 )
 
-Run Tests Inside the Docker Container:
+[//]: # (```)
 
-Once inside the container, navigate to the application directory (/app) where your code is located:
+[//]: # ()
+[//]: # (### Step 4: Access the Application)
 
-cd /app
+[//]: # (Once the Docker container is running, you can access the application by opening a web browser and navigating to:)
 
-Execute Gradle Test Commands:
+[//]: # ()
+[//]: # (http://localhost:8080/api/songs/load)
 
-Run Gradle commands to execute your tests. For example:
+[//]: # ()
+[//]: # ()
+[//]: # (## Endpoints)
 
-To run all tests:
-./gradlew test
+[//]: # (Here are the available endpoints for the application:)
 
-View Test Results:
+[//]: # ()
+[//]: # (- GET /api/songs/load: Load data from a predefined JSON file.)
+
+[//]: # (- GET /api/songs: Retrieve a paginated list of songs.)
+
+[//]: # (- GET /api/songs/{title}: Retrieve a song by its title.)
+
+[//]: # (- POST /api/songs/{id}/rate: Rate a song by its ID.)
+
+[//]: # (#### i have attached a postman collection in the root directory of the code which has the requests already made and can be run directly)
+
+[//]: # ()
+[//]: # ()
+[//]: # (## Additional Notes)
+
+[//]: # ()
+[//]: # (Ensure that the Docker daemon is running on your machine.)
+
+[//]: # (The application will use an in-memory database &#40;H2&#41; for this demonstration.)
+
+[//]: # ()
+[//]: # ()
+[//]: # (## Troubleshooting)
+
+[//]: # ()
+[//]: # (If you encounter any issues, ensure that:)
+
+[//]: # ()
+[//]: # (- Docker is installed and running.)
+
+[//]: # (- The ports are not being used by other applications.)
+
+[//]: # (- The Docker image was pulled successfully.)
+
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (Running Tests)
+
+[//]: # (The test execution process will involve running a Docker container and then executing the tests within that container. Here are the steps:)
+
+[//]: # ()
+[//]: # (Start the Docker Container with a Shell:)
+
+[//]: # ()
+[//]: # (Start a Docker container from the image with an interactive shell:)
+
+[//]: # ()
+[//]: # (docker run -it --entrypoint /bin/bash hitansh1g/song-app:v2)
+
+[//]: # ()
+[//]: # ()
+[//]: # (This command starts a Docker container and gives you an interactive shell &#40;/bin/bash&#41; within the container.)
+
+[//]: # ()
+[//]: # (Run Tests Inside the Docker Container:)
+
+[//]: # ()
+[//]: # (Once inside the container, navigate to the application directory &#40;/app&#41; where your code is located:)
+
+[//]: # ()
+[//]: # (cd /app)
+
+[//]: # ()
+[//]: # (Execute Gradle Test Commands:)
+
+[//]: # ()
+[//]: # (Run Gradle commands to execute your tests. For example:)
+
+[//]: # ()
+[//]: # (To run all tests:)
+
+[//]: # (./gradlew test)
+
+[//]: # ()
+[//]: # (View Test Results:)
 # Song Application
 
 This is a Spring Boot application for managing songs. The application provides RESTful APIs for loading data, retrieving songs, and rating songs.
@@ -238,50 +312,11 @@ To run all tests:
 
 4. **View Test Results:**
 
-   After the tests complete, you can view the test results in the console output. Gradle will provide a summary of test execution along with any failures or errors encountered.
+   - After the tests complete, you can view the test results in the console output. Gradle will provide a summary of test execution along with any failures or errors encountered.
 
-   If you're using an IDE like IntelliJ IDEA or Eclipse, you can also view detailed test reports in the `build/reports/tests` directory of your project. These reports include information about individual test cases, their status (passed or failed), and any exceptions thrown during their execution.
-
-   To open the test reports directly from the Docker container using a command-line interface, you can use tools like `cat` or `less` to view the contents of these files. For example:
-
-   ```sh
-   cat build/reports/tests/index.html
-   ```
+   - If you're using an IDE like IntelliJ IDEA or Eclipse, you can also view detailed test reports in the `build/reports/tests` directory of your project. These reports include information about individual test cases, their status (passed or failed), and any exceptions thrown during their execution.
 
 
 5. **View Test Results:**
 
-After the tests complete, you can view the test results in the console output. Gradle will provide a summary of test execution along with any failures or errors encountered.
-
-
-
-
-
-
-[//]: # ()
-[//]: # (Running Tests)
-
-[//]: # (To run the tests, use the following command:)
-
-[//]: # (```bash)
-
-[//]: # (./gradlew test)
-
-[//]: # (```)
-
-[//]: # ()
-
-
-
-
-[//]: # (To run the tests, use the following command:)
-
-[//]: # (```bash)
-
-[//]: # (./gradlew test)
-
-[//]: # (```)
-
-[//]: # ()
-
-
+- After the tests complete, you can view the test results in the console output. Gradle will provide a summary of test execution along with any failures or errors encountered.
