@@ -33,6 +33,7 @@ public class SongController {
 
     @GetMapping("/load")
     public String loadData() {
+//        System.out.println("infivnainvbia");
         try {
             File jsonFile = new File("input/input.json");
 //            System.out.println("reached heere ");
@@ -42,6 +43,7 @@ public class SongController {
 //            System.out.println("ijnjnjnjnjnjn");
             return "Data loaded successfully!";
         } catch (IOException e) {
+//            System.out.println("ppppppppppppp");
             return "Failed to load data: " + e.getMessage();
         }
     }
