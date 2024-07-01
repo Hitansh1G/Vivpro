@@ -21,7 +21,7 @@ This is a Spring Boot application for managing songs. The application provides R
 
 - JDK 17 or higher
 - Gradle
-- Docker (optional, for running the application in a container)
+- Docker 
 
 ## Getting Started
 - I already have added the input file inside a folder called "input".
@@ -31,7 +31,7 @@ This is a Spring Boot application for managing songs. The application provides R
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/song-application.git
+git clone https://github.com/Hitansh1G/Vivpro.git
 cd song-application
 ```
 ## Prerequisites
