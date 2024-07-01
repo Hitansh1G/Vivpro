@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b61e9f71-f602-4aed-aede-56ecd41af263",
-		"name": "Vivpro assingment",
+		"name": "Vivpro Assignment",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22865738"
 	},
@@ -10,31 +10,79 @@
 			"name": "Load songs",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/songs/load",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "songs", "load"]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "get all songs",
+			"name": "Get all songs",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/songs?page=0&size=10",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "songs"],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "get song by title",
+			"name": "Get song by title",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/songs/{title}",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "songs", "{title}"],
+					"variable": [
+						{
+							"key": "title",
+							"value": ""
+						}
+					]
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "rate song",
+			"name": "Rate song",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/songs/{id}/rate?rating=5",
+					"host": ["{{baseUrl}}"],
+					"path": ["api", "songs", "{id}", "rate"],
+					"query": [
+						{
+							"key": "rating",
+							"value": "5"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
 			},
 			"response": []
 		}
