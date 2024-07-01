@@ -12,8 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/songs/load",
-					"host": ["{{baseUrl}}"],
+					"raw": "http://localhost:8080/api/songs/load",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
 					"path": ["api", "songs", "load"]
 				}
 			},
@@ -25,8 +27,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/songs?page=0&size=10",
-					"host": ["{{baseUrl}}"],
+					"raw": "http://localhost:8080/api/songs?page=0&size=10",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
 					"path": ["api", "songs"],
 					"query": [
 						{
@@ -48,8 +52,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/songs/{title}",
-					"host": ["{{baseUrl}}"],
+					"raw": "http://localhost:8080/api/songs/{title}",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
 					"path": ["api", "songs", "{title}"],
 					"variable": [
 						{
@@ -67,8 +73,10 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/api/songs/{id}/rate?rating=5",
-					"host": ["{{baseUrl}}"],
+					"raw": "http://localhost:8080/api/songs/{id}/rate?rating=5",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "8080",
 					"path": ["api", "songs", "{id}", "rate"],
 					"query": [
 						{
