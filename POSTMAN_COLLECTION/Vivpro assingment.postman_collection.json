@@ -52,12 +52,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/songs/{title}",
+					"raw": "http://localhost:8080/api/songs/title?title={title}",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8080",
-					"path": ["api", "songs", "{title}"],
-					"variable": [
+					"path": ["api", "songs", "title"],
+					"query": [
 						{
 							"key": "title",
 							"value": ""
@@ -73,20 +73,21 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/songs/{id}/rate?rating=5",
+					"raw": "http://localhost:8080/api/songs/rate",
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "8080",
-					"path": ["api", "songs", "{id}", "rate"],
-					"query": [
-						{
-							"key": "rating",
-							"value": "5"
-						}
-					],
-					"variable": [
+					"path": ["api", "songs", "rate"]
+				},
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
 							"key": "id",
+							"value": ""
+						},
+						{
+							"key": "rating",
 							"value": ""
 						}
 					]

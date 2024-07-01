@@ -54,13 +54,13 @@ public class SongController {
         return songPage.getContent();
     }
 
-    @GetMapping("/{title}")
-    public Song getSongByTitle(@PathVariable String title) {
+    @GetMapping("/title")
+    public Song getSongByTitle(@RequestParam String title) {
         return songRepository.findByTitle(title);
     }
 
-    @PostMapping("/{id}/rate")
-    public Song rateSong(@PathVariable String id, @RequestParam double rating) {
+    @PostMapping("/rate")
+    public Song rateSong(@RequestParam String id, @RequestParam double rating) {
         Song song = songRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Song not found with id " + id));
         song.setStarRating(rating);
