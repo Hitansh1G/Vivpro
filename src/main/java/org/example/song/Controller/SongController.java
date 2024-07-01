@@ -7,6 +7,7 @@ import org.example.song.Service.DataProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
@@ -55,9 +56,15 @@ public class SongController {
     }
 
     @GetMapping("/title")
-    public Song getSongByTitle(@RequestParam String title) {
-        return songRepository.findByTitle(title);
+    public ResponseEntity<?> getSongByTitle(@RequestParam String title) {
+        List<Song> songs = songRepository.findByTitle(title);
+        if (songs.isEmpty()) {
+            return ResponseEntity.notFound().build(); // Return 404 if no songs found
+        } else {
+            return ResponseEntity.ok(songs.get(0)); // Return the first song found
+        }
     }
+
 
     @PostMapping("/rate")
     public Song rateSong(@RequestParam String id, @RequestParam double rating) {

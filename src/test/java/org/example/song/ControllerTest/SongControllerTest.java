@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -39,11 +40,10 @@ public class SongControllerTest {
     public void testLoadData() throws Exception {
         when(dataProcessingService.normalizeData(ArgumentMatchers.any(File.class)))
                 .thenReturn(Collections.emptyList());
-//        System.out.println("aobvnia");
+
         mockMvc.perform(get("/api/songs/load"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Data loaded successfully!"));
-//        System.out.println("ooooooo");
 
         verify(songRepository, times(1)).saveAll(Collections.emptyList());
     }
@@ -69,12 +69,15 @@ public class SongControllerTest {
         song.setId("5vYA1mW9g2Coh1HUFUSmlb");
         song.setTitle("3AM");
 
-        when(songRepository.findByTitle("3AM")).thenReturn(song);
+        when(songRepository.findByTitle("3AM")).thenReturn(Collections.singletonList(song));
 
-        mockMvc.perform(get("/api/songs/3AM"))
+        mockMvc.perform(get("/api/songs/title")
+                        .param("title", "3AM"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'id':'5vYA1mW9g2Coh1HUFUSmlb','title':'3AM'}"));
     }
+
+
 
     @Test
     public void testRateSong() throws Exception {
@@ -83,12 +86,14 @@ public class SongControllerTest {
         song.setTitle("3AM");
         song.setStarRating(0.0);
 
-        when(songRepository.findById("5vYA1mW9g2Coh1HUFUSmlb")).thenReturn(java.util.Optional.of(song));
+        when(songRepository.findById("5vYA1mW9g2Coh1HUFUSmlb")).thenReturn(Optional.of(song));
         when(songRepository.save(song)).thenReturn(song);
 
-        mockMvc.perform(post("/api/songs/5vYA1mW9g2Coh1HUFUSmlb/rate")
+        mockMvc.perform(post("/api/songs/rate")
+                        .param("id", "5vYA1mW9g2Coh1HUFUSmlb")
                         .param("rating", "4.5"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{'id':'5vYA1mW9g2Coh1HUFUSmlb','title':'3AM','starRating':4.5}"));
     }
+
 }
