@@ -32,7 +32,7 @@ This is a Spring Boot application for managing songs. The application provides R
 
 ```bash
 git clone https://github.com/Hitansh1G/Vivpro.git
-cd song-application
+cd Vivpro
 ```
 ## Prerequisites
 
