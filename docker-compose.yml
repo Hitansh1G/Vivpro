@@ -1,12 +1,9 @@
 version: '3'
 
 services:
-  hitansh-springboot-container:
-    image: hitansh-spring-boot-docker-compose:1
-    build:
-      context: ./
-      dockerfile: Dockerfile
+  song-app:
+    image: hitansh1g/song-app:v2
     volumes:
-      - /data/hitansh-springboot-container
+      - /data/song-app
     ports:
       - "8080:8080"
