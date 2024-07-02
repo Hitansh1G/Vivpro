@@ -75,8 +75,8 @@ Here are the available endpoints for the application:
 
 - **GET /api/songs/load**: Load data from a predefined JSON file.
 - **GET /api/songs**: Retrieve a paginated list of songs.
-- **GET /api/songs/{title}**: Retrieve a song by its title.
-- **POST /api/songs/{id}/rate**: Rate a song by its ID.
+- **GET /api/songs/title**: Retrieve a song by its title.
+- **POST /api/songs/rate**: Rate a song by its ID.
 
 ## Additional Notes
 

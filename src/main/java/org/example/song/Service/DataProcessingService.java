@@ -19,6 +19,7 @@ public class DataProcessingService {
         ObjectMapper objectMapper = new ObjectMapper();
 //        System.out.println("12");
         JsonNode rootNode = objectMapper.readTree(jsonFile);
+        //The JSON file is read and converted into a JsonNode object, which represents the entire JSON structure.
 //        System.out.println("123");
 
         JsonNode idNode = rootNode.path("id");
