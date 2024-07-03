@@ -23,6 +23,9 @@ public class Song {
     private int numSections;
     private int numSegments;
     private double starRating;
+    private int ratingCount;
+    private double ratingSum;
+
 
     // Getters and setters
 
@@ -39,6 +42,8 @@ public class Song {
         this.numSections = numSections;
         this.numSegments = numSegments;
         this.starRating = starRating;
+        this.ratingCount = 0;
+        this.ratingSum = 0;
     }
 
     public Song() {
@@ -139,5 +144,22 @@ public class Song {
     public void setStarRating(double starRating) {
         this.starRating = starRating;
     }
+
+    public int getRatingCount() {
+        return ratingCount;
+    }
+
+    public void setRatingCount(int ratingCount) {
+        this.ratingCount = ratingCount;
+    }
+
+    public double getRatingSum() {
+        return ratingSum;
+    }
+
+    public void setRatingSum(double ratingSum) {
+        this.ratingSum = ratingSum;
+    }
+
 }
 

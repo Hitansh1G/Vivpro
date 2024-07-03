@@ -26,25 +26,18 @@ public class SongController {
 
     @Autowired
     private DataProcessingService dataProcessingService;
-
-//    public SongController(SongRepository songRepository, DataProcessingService dataProcessingService) {
+    //    public SongController(SongRepository songRepository, DataProcessingService dataProcessingService) {
 //        this.songRepository = songRepository;
 //        this.dataProcessingService = dataProcessingService;
 //    }
-
     @GetMapping("/load")
     public String loadData() {
-//        System.out.println("infivnainvbia");
         try {
             File jsonFile = new File("input/input.json");
-//            System.out.println("reached heere ");
             List<Song> songs = dataProcessingService.normalizeData(jsonFile);
-//            System.out.println("uabvniuanbvua");
             songRepository.saveAll(songs);
-//            System.out.println("ijnjnjnjnjnjn");
             return "Data loaded successfully!";
         } catch (IOException e) {
-//            System.out.println("ppppppppppppp");
             return "Failed to load data: " + e.getMessage();
         }
     }
@@ -66,11 +59,29 @@ public class SongController {
     }
 
 
+//    @PostMapping("/rate")
+//    public Song rateSong(@RequestParam String id, @RequestParam double rating) {
+//        Song song = songRepository.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("Song not found with id " + id));
+//        song.setStarRating(rating);
+//
+//        return songRepository.save(song);
+//    }
     @PostMapping("/rate")
     public Song rateSong(@RequestParam String id, @RequestParam double rating) {
         Song song = songRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Song not found with id " + id));
-        song.setStarRating(rating);
+
+        int tempRating = song.getRatingCount()+1;
+        song.setRatingCount(tempRating);
+        double currRatingSum = song.getRatingSum();
+        song.setRatingSum(currRatingSum + rating);
+        //new rating is (oldSum + newRating)/count;
+        int currCount = song.getRatingCount();
+        double avgRating = song.getRatingSum() / currCount;
+        song.setStarRating(avgRating);
+
         return songRepository.save(song);
     }
+
 }
